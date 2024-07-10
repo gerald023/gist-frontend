@@ -1,0 +1,190 @@
+/* #root {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  text-align: center;
+} */
+
+.contactPage{
+  display: flex;
+  width: 1400px;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color: white;
+  border-radius: 14px;
+  height: 70vh;
+  gap: 30px;
+  padding: 20px;
+  box-shadow: 6px 6px 10px 10px gainsboro;
+}
+.contactPage .head{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.contactPage .head h1{
+  font-size: 20px;
+  font-weight: 700;
+  top: 0;
+}
+.contactPage .contactInfo{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.contactInfo .contacts{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  gap: 20px;
+  width: 40%;
+  overflow-y: scroll;
+}
+.contactInfo .contacts::-webkit-scrollbar {
+  width: 8px; /* Width of the vertical scrollbar */
+  height: 8px; /* Height of the horizontal scrollbar */
+}
+.contactInfo .contacts::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the track */
+  border-radius: 10px;
+}
+.contactInfo .contacts::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+.contactInfo .contacts::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.contactInfo .contacts .details{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 13px;
+  background-color: gainsboro;
+}
+.contactInfo .contacts .details .info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.contactInfo .contacts .details .info .name{
+  font-size: 19px;
+  font-weight: 700;
+}
+.contactInfo .contacts .details .info .number{
+  font-size: 15px;
+  font-weight: 600;
+}
+.contactInfo .contacts .details .edit{
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+.editBtn{
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 700;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+.add_contact{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+}
+
+.add_contact form{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add_contact form  .name{
+  width: 70%;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.add_contact form label{
+  font-size: 18px;
+  font-weight: 600;
+}
+.add_contact form input{
+  width: 100%;
+  border-radius: 7px;
+  font-size: 20px;
+  border: 2px solid gray;
+  font-weight: 500;
+  height: 40px;
+  outline: transparent;
+  padding: 7px 20px;
+}
+.add_contact form input:focus{
+  border: 2px solid black ;
+}
+.add_contact form input::placeholder{
+  font-size: 17px;
+  font-weight: 600;
+  color: gray;
+}
+.errMeg{
+  color: red;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.add_contact .btn{
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.add_contact form button{
+  /* padding: 12px; */
+  font-size: 18px;
+  color: white;
+  font-weight: 600;
+  width: 100px;
+  background-color: blue;
+}

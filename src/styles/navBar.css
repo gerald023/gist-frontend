@@ -1,0 +1,18 @@
+.nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: #F2F2F2;
+    color: #003366;
+    left: 0;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+  
+.hidden {
+    transform: translateY(-100%);
+  }
+  
+  .visible {
+    transform: translateY(0);
+  }
