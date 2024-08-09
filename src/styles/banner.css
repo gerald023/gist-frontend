@@ -1,0 +1,331 @@
+.bannerCon{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 80px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.bannerCon .banner_tip{
+    display: flex;
+    position: absolute;
+    font-weight: 700;
+    background-color: #003366;
+    color: #F2F2F2;
+    border-radius: 5px;
+    width: 9%;
+    top: 3;
+    right: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    /* z-index: 999; */
+}
+.homeBanner{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    filter: grayscale(100%);
+    transition: 0.5s ease-in-out;
+}
+.homeBanner:hover{
+    filter: grayscale(0%);
+}
+
+.highlightText{
+    width: 100%;
+    height: 20%;
+    background: yellow;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.355);
+    gap: 30px;
+    bottom: 0;
+    position: absolute;
+    justify-content: space-evenly;
+    padding: 10px 30px 30px 30px;
+}
+.highlightText .title{
+    font-size: 50px;
+    font-weight: 700;
+    color: #F2F2F2;
+}
+.highlightText .date{
+    color: #F2F2F2;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.highlightText .date .author{
+    color: white;
+    display: flex;
+    align-items: center;
+    text-shadow: 3px 0px 0px black;
+    font-size: 23px;
+}
+ .recentPost{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px;
+}
+.recentPost .title{
+    font-size: 30px;
+    font-weight: 600;
+    color: black;
+}
+.recentPost .rowBlog{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.recentPost .rowBlog .blogCon{
+    display: grid;
+    width: 100%;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minMax(200px, 300px));
+    justify-content: center;
+}
+.recentPost .rowBlog .blogCon .blogBox{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    gap: 0%;
+}
+.rowBlog .blogCon .blogBox .img{
+    width: 100%;
+    height: 55%;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.rowBlog .blogCon .blogBox .img .tag{
+    display: flex;
+    background-color: #003366;
+    color: #F2F2F2;
+    font-size: 15px;
+    right: 10px;
+    top: 4px;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+    border-radius: 7px;
+    font-weight: 600;
+}
+.rowBlog .blogCon .blogBox .img img{
+    width: 100%;
+    height: 100%;
+}
+.rowBlog .blogCon .blogBox .desc{
+    width: 100%;
+    /* background-color: #F2F2F2; */
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 0px;
+    justify-content: space-between;
+}
+.rowBlog .blogCon .blogBox .desc .name{
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+}
+
+.rowBlog .blogCon .blogBox .desc .author{
+    display: flex;
+    /* justify-content: ; */
+    gap: 22px;
+}
+
+.rowBlog .blogCon .blogBox .desc .author .authorName{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+/* styliing the best of the week blog post */
+
+.botw{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.botw .botwCon{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.botwCon .winner{
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    width: 65%;
+}
+.botwCon .winner .title{
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+.botwCon .winner .title .head{
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+}
+.botwCon .winner .title .link{
+    font-size: 17px;
+    font-weight: 600;
+}
+.botwCon .winner .title .icon{
+    line-height: 7;
+    margin-bottom: 2px;
+}
+.botwCon .winner .post{
+    width: 100%;
+    height: 600px;
+    background-color: red;
+    background-image: url('../assets/travel.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.botwCon .winner .post .text{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.botwCon .winner .post .text .tags{
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+.botwCon .winner .post .text .tags div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    background-color: white;
+    gap: 10px;
+}
+.botwCon .winner .post .tags div .icon{
+    margin-bottom: -3px;
+    /* color: white; */
+    border: 1px solid rgba(0, 0, 0, 0.398);
+    border-radius: 50%;
+    /* text-shadow: 2px 1px 2px black; */
+}
+.botwCon .winner .post .tags div:last-child{
+    background-color: rgba(0, 0, 0, 0.201);
+    border: 2px solid white;
+    color: white;
+    text-shadow: 2px 1px 2px black;
+}
+.botwCon .winner .post .btnCon{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    bottom: 0;
+}
+.botwCon .winner .post .btn{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F2F2F2;
+}
+.botwCon .ads{
+    width: 30%;
+    height: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between  ;
+    margin-top: 5%;
+    /* background-color: green; */
+}
+.botwCon .ads .adsBlock{
+    background-color: #b7d3d7;
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 20px;
+}
+.botwCon .ads .adsBlock .head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.botwCon .ads .adsBlock .head .btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 9px;
+    font-size: 14px;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+.botwCon .ads .adsBlock .head .icon{
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 50%;
+    background-color: white;
+}
+.botwCon .ads .adsBlock .title{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+}
+.botwCon .ads .adsBlock .title div:first-child{
+    font-size: 25px;
+    font-weight: 500;
+    width: 100%;
+}
+.botwCon .ads .adsBlock .title div:last-child{
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1;
+}
+.botwCon .ads .adsBlock .link{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: underline;
+}
+
+.botwCon .ads .allcate{
+    background-image: url('../assets/ads.jpg');
+    background-position: top;
+    border-radius: 20px;
+    background-size: cover;
+    width: 100%;
+    height: 44%;
+}

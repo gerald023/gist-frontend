@@ -1,0 +1,58 @@
+.auth_con{
+    width: '100%';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.auth_con form{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.auth_con form .signup{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.auth_con form label{
+    font-weight: 600;
+    font-size: 17px;
+}
+
+.addon{
+    display: flex;
+    /* align-items: center; */
+}
+
+.addon .left_addon{
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.addon input{
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+}
+.errmeg{
+    color: crimson;
+    font-size: 15px;
+    font-weight: 600;
+}
+.auth_con form .formbtn{
+    background-color: #003366;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: #F2F2F2;
+    font-weight: 700;
+}
+.disable{
+    background-color: #7697b8;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: wait;
+    color: #F2F2F2;
+    font-weight: 700;
+}

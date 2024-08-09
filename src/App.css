@@ -9,6 +9,7 @@
 } */
 
 .contactPage{
+  margin: 120px auto;
   display: flex;
   width: 1400px;
   flex-direction: column;
