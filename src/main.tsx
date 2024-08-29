@@ -32,7 +32,7 @@ const Webrouter = createBrowserRouter([
     ]
   },
   {
-    path: 'post/:id',
+    path: '/post/:id',
     element: <OnePostPage/>
   },
   {
