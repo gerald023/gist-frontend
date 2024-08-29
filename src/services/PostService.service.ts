@@ -1,5 +1,6 @@
 import axios from "axios";
 // import { LikePostDTO } from "../schemas/likeSchema.schema";
+import {BASE_URL} from '../utils/baseURL'
 import Cookies from 'js-cookie'
 
 export interface postDTO{
@@ -21,13 +22,13 @@ export interface CreatePostDTO{
     author: any
     image: any
 }
-const BASE_URL = "http://localhost:4040/api/v1/post";
+// const BASE_URL = "http://localhost:4040/api/v1/post";
 export class PostServices {
     async createPost(data: CreatePostDTO){
         try{
            
 
-            const response = await axios.post(`${BASE_URL}/make-post`, data,
+            const response = await axios.post(`${BASE_URL}/api/v1/post/make-post`, data,
                 {
                     headers: {
                         Authorization: `Bearer ${data.author}`,
@@ -46,7 +47,7 @@ export class PostServices {
 
     async getAllPost(){
         try{
-            const response = await axios.get(`${BASE_URL}/all-posts`);
+            const response = await axios.get(`${BASE_URL}/api/v1/post/all-posts`);
             return response;
         }catch(error){
             console.log(error)
@@ -55,7 +56,7 @@ export class PostServices {
 
     async getLatestPost(){
         try{
-            const response = await axios.get(`${BASE_URL}/latest-post`)
+            const response = await axios.get(`${BASE_URL}/api/v1/post/latest-post`)
             return response;
         }catch(error){
             console.log(error);
@@ -63,7 +64,7 @@ export class PostServices {
     }
     async getPostByCategory(cateID: number){
         try{
-            const response = await axios.get(`${BASE_URL}/category/${cateID}`)
+            const response = await axios.get(`${BASE_URL}/api/v1/post/category/${cateID}`)
             return response;
         }catch(error){
             console.log(error);
@@ -72,7 +73,7 @@ export class PostServices {
 
     async getPostById(postID: number){
         try{
-            const response = await axios.get(`${BASE_URL}/one-post/${postID}`)
+            const response = await axios.get(`${BASE_URL}/api/v1/post/one-post/${postID}`)
             return response;
         }catch(error){
             console.log(error);
@@ -80,7 +81,7 @@ export class PostServices {
     }
     async likePost(Id: number){
         try{
-            const response = await axios.post(`http://localhost:4040/api/v1/like/like-post`,
+            const response = await axios.post(`${BASE_URL}/api/v1/like/like-post`,
             {
                 postId: Id
             },
@@ -100,7 +101,7 @@ export class PostServices {
 
     async getLikesForEachPost(id: number){
         try{
-            const response = await axios.get(`http://localhost:4040/api/v1/like/get-likes/${id}`)
+            const response = await axios.get(`${BASE_URL}/api/v1/like/get-likes/${id}`)
             return response;
         }catch(error){
             console.log(error)
@@ -109,7 +110,7 @@ export class PostServices {
     
     async getDisikesForEachPost(id: number){
         try{
-            const response = await axios.get(`http://localhost:4040/api/v1/like/get-dislikes/${id}`)
+            const response = await axios.get(`${BASE_URL}/api/v1/like/get-dislikes/${id}`)
 return response;
         }catch(error){
             console.log(error)
