@@ -16,7 +16,7 @@ function BlogBox(props: blogSchema)   {
     
   return (
     <>
-      <Link to={`/post/${props.id}`}>
+      <Link to={`post/${props.id}`}>
       <Box className='blogBox'>
               <Box className='img'>
                 <Box className='tag'>{props.category}</Box>
