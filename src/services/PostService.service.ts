@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LikePostDTO } from "../schemas/likeSchema.schema";
+// import { LikePostDTO } from "../schemas/likeSchema.schema";
 import Cookies from 'js-cookie'
 
 export interface postDTO{
@@ -92,6 +92,7 @@ export class PostServices {
                 }
             )
             // console.log(response.headers)
+            return response
         }catch(error){
             console.log(error)
         }

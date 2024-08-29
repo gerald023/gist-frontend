@@ -8,7 +8,7 @@ export class CategoryService{
     async createCategory(name: string, description: string, image: any){
         try{
             const BASE_URL = "http://localhost:4040/api/v1/category/create-cate";
-            const newUrl = "http://localhost:4040/api/v1/user/create-cate"
+            // const newUrl = "http://localhost:4040/api/v1/user/create-cate"
             const response = await axios.post(BASE_URL, {
                 name: name,
                 description: description,

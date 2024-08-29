@@ -1,9 +1,6 @@
 import { Avatar, Box, Flex, Img, Text } from '@chakra-ui/react'
-import blog from '../../assets/blogCode.jpg';
 import '../../styles/banner.css';
-import authorImg from '../../assets/travel.jpg'
 import { blogSchema } from '../../schemas/blogSchema.schema';
-import { string } from 'zod';
 import { Link } from 'react-router-dom';
 
 

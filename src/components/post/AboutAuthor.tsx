@@ -1,8 +1,6 @@
-import { Box, Button, Flex, Image, Text } from '@chakra-ui/react'
-import React from 'react'
+import { Box, Flex, Image, Text } from '@chakra-ui/react'
 import authImg from '../../assets/pexels-podnar2018-1424239.jpg'
 import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { FaFacebook, FaInstagram, FaXTwitter } from 'react-icons/fa6';
 import { Divider } from '@mantine/core'
 

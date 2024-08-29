@@ -1,14 +1,12 @@
-import React, { useEffect } from 'react'
-import { Box, Button, FormLabel, Icon, Img, Input, InputGroup, InputLeftAddon, InputRightAddon, Text } from "@chakra-ui/react";
+import { useEffect } from 'react'
+import { Box, FormLabel, Input, InputGroup,  Text } from "@chakra-ui/react";
 import z from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler ,useForm } from "react-hook-form";
 import '../styles/auth.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faEye, faLock } from '@fortawesome/free-solid-svg-icons'
+
 import { useState } from "react";
 import {CategoryService} from '../services/CategoryService.service'
-import axios from 'axios';
 
 function CreatCategory() {
     const cateService = new CategoryService();
@@ -30,8 +28,8 @@ function CreatCategory() {
 
     })
 
-    const [name, setName] = useState<string>('');
-    const [desc, setDesc] = useState<string>('');
+    // const [name, setName] = useState<string>('');
+    // const [desc, setDesc] = useState<string>('');
     const [file, setFile] = useState<File>();
     const [cate, setCate] = useState<[]>([])
     
@@ -39,6 +37,7 @@ function CreatCategory() {
       const response = await cateService.getAllCategory();
       console.log(response);
       console.log(response?.data);
+      console.log(cate)
       setCate(response?.data);
     }
     useEffect(()=>{
@@ -56,9 +55,11 @@ function CreatCategory() {
            
             console.log(response);
             return response;
-        }catch(error){
+        }catch(error:any){
             console.log(error);
+            setReqErr(error.response.data)
         }
+
              reset()
            console.log(data);
            

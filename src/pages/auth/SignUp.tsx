@@ -1,4 +1,4 @@
-import { Box, Button, FormLabel, Icon, Input, InputGroup, InputLeftAddon, InputRightAddon, Text } from "@chakra-ui/react";
+import { Box, FormLabel,  Input, InputGroup, InputLeftAddon, InputRightAddon, Text } from "@chakra-ui/react";
 import z from 'zod';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SubmitHandler ,useForm } from "react-hook-form";
@@ -9,7 +9,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+// const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 
 
@@ -42,11 +42,11 @@ function SignUp() {
         const handlePassword = ()=>{
             setShowPassword(!showPassword)
         }
-        const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false)
+        // const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false)
         const [loading, setLoading] = useState<boolean>(false)
-        const handleConfirmPassword = ()=>{
-            setShowConfirmPassword(!showConfirmPassword)
-        }
+        // const handleConfirmPassword = ()=>{
+        //     setShowConfirmPassword(!showConfirmPassword)
+        // }
         const basedURL = "http://localhost:4040/api/v1/user/signup";
         const signup = async (data: AddUserFormInput)=>{
             setLoading(true)
@@ -62,12 +62,13 @@ function SignUp() {
           }
     const {register, handleSubmit, formState: {errors}, reset} = useForm<AddUserFormInput>({
         resolver: zodResolver(SignUpSchema)
+        
     })
 
     const onSubmit: SubmitHandler<AddUserFormInput> = (data)=>{
      signup(data);
         // if (!errorMes) {
-        //   reset()
+          reset()
         //  }
         console.log(data);
         

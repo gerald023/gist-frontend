@@ -1,5 +1,4 @@
 import { Avatar, Box, Button, Flex, Text } from '@chakra-ui/react'
-import React from 'react'
 import comImg from '../../assets/ads.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faThumbsDown, faThumbsUp } from '@fortawesome/free-solid-svg-icons'

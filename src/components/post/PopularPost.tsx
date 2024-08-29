@@ -1,4 +1,4 @@
-import { Box, Flex, Img, Text } from '@chakra-ui/react'
+import { Box, Flex, Text } from '@chakra-ui/react'
 import imgs from '../../assets/blogCode.jpg'
 import Slider from "react-slick";
 import investment from '../../assets/pexels-podnar2018-1424239.jpg';

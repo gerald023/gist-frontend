@@ -1,4 +1,4 @@
-import { Box, ChakraProvider, Text } from '@chakra-ui/react'
+import { Box, ChakraProvider } from '@chakra-ui/react'
 import HomeBanner from '../components/banner/HomeBanner'
 
 function HomePage() {

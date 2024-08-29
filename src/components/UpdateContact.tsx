@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, FormControl, FormLabel, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, useDisclosure } from '@chakra-ui/react'
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SubmitHandler, useForm } from "react-hook-form";
+import {  useForm } from "react-hook-form";
 import axios from 'axios';
 
 
@@ -24,7 +24,7 @@ const AddContactSchema = z.object({
 
 function UpdateContact({firstName, lastName, phoneNo, id}: { firstName: string, lastName: string, phoneNo: string, id: number}) {
 
-    const {register, handleSubmit, formState: {errors}, reset} = useForm<AddContactFormInput>({
+    const {register, formState: {},} = useForm<AddContactFormInput>({
         resolver: zodResolver(AddContactSchema)
     })
 
@@ -73,7 +73,7 @@ function UpdateContact({firstName, lastName, phoneNo, id}: { firstName: string, 
            
            <FormControl>
               <FormLabel>First name</FormLabel>
-              <Input ref={initialRef} value={FirstName} {...register("firstName")} onChange={(e)=>setFirstName(e.target.value)} placeholder='First name' />
+              <Input  value={FirstName} {...register("firstName")} onChange={(e)=>setFirstName(e.target.value)} placeholder='First name' />
             </FormControl>
 
             <FormControl mt={4}>

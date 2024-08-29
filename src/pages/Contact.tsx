@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import '../App.css';
 import {ContactInfo} from '../interface/ContactInterface'
 import axios from 'axios';
@@ -16,9 +16,11 @@ export default function Contact() {
       try{
         const response = await axios.get<ContactInfo[]>(`${basedURL}`);
         console.log(AllContacts)
+        
         setContacts(response.data);
       }catch(error){
         setError("Contacts failed to load")
+        console.log(Error)
       }
     }
     fetchContacts()

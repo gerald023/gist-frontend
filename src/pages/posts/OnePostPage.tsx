@@ -49,6 +49,7 @@ function OnePostPage() {
 
       console.log(likes)
       // console.log(allLikes?.data)
+      console.log(dislikes)
       // console.log(allDislikes)
     }
     useEffect(()=>{
