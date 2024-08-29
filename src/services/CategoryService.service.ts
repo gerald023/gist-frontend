@@ -32,7 +32,7 @@ export class CategoryService{
 
     async getAllCategory(){
         try{
-            const response = await axios.get(BASE_URL);
+            const response = await axios.get(`${BASE_URL}/api/v1/category`);
             return response;
         }catch(error){
             console.log("error: ", error);

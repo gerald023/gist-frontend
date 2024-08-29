@@ -8,7 +8,7 @@ import { faEnvelope, faEye, faLock } from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react";
 import axios from "axios";
 import Cookies from 'js-cookie';
-
+import { BASE_URL } from '../../utils/baseURL';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -32,12 +32,12 @@ function Login() {
   const handlePassword = ()=>{
     setShowPassword(!showPassword)
 }
-const basedURL = "http://localhost:4040/api/v1/user/login";
+// const basedURL = "http://localhost:4040/api/v1/user/login";
 
 const userLogin = async (data: AddUserFormInput)=>{
     setLoading(true)
     try{
-      const response = await axios.post<AddUserFormInput[]>(`${basedURL}`, data);
+      const response = await axios.post<AddUserFormInput[]>(`${BASE_URL}/api/v1/user/login`, data);
       console.log(response)
       console.log(typeof(response.data))
       const jwt : string = response.data.toString();

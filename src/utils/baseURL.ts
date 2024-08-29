@@ -1,1 +1,1 @@
-export const BASE_URL = "https://gist-backend-2.onrender.com"
+export const BASE_URL = 'http://localhost:4040'

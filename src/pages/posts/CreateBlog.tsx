@@ -97,8 +97,6 @@ const CreateBlog =()=> {
     setPost(postRes?.data);
     console.log(postRes);
     console.log(Post);
-  
-
   }
   const [Post, setPost] = useState<postDTO[]>([])
   const blogDetails : CreatePostDTO ={
