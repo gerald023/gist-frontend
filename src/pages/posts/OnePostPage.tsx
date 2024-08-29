@@ -1,18 +1,17 @@
-import { Box, Flex, Button, Image, ListItem, Text, UnorderedList, Avatar } from '@chakra-ui/react'
+import { Box, Flex, Button, Image, Text } from '@chakra-ui/react'
 import  { useEffect, useState } from 'react'
 import { PostServices } from '../../services/PostService.service'
 import { useParams } from 'react-router'
 // import { Image } from '@mantine/core';
 import Loader from '../../components/Loader';
 import RelatedPost from './RelatedPost';
-import {  Divider, List } from '@mantine/core';
+import {  Divider } from '@mantine/core';
 import { formatDate } from '../../script/date.format';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faHeart, faMessage } from '@fortawesome/free-solid-svg-icons';
 import CommentBox from '../../components/post/CommentBox';
 import AboutAuthor from '../../components/post/AboutAuthor';
 import PopularPost from '../../components/post/PopularPost';
-import { LikePostDTO } from '../../schemas/likeSchema.schema';
 import { useWebSocket } from '../../utils/useWebSocket ';
 
 function OnePostPage() {
@@ -50,37 +49,36 @@ function OnePostPage() {
 
       console.log(likes)
       // console.log(allLikes?.data)
-      console.log(dislikes)
       // console.log(allDislikes)
     }
     useEffect(()=>{
       if (!socket) return;
 
        // Send initial request for likes and dislikes
-       socket.onopen = () => {
-        socket.send(JSON.stringify({ type: 'GET_LIKES_DISLIKES', postId }));
-    };
+    //    socket.onopen = () => {
+    //     socket.send(JSON.stringify({ type: 'GET_LIKES_DISLIKES', postId }));
+    // };
      // Listen for updates from the WebSocket server
-     socket.onmessage = (event) => {
-      console.log(event.data)
-      const data = JSON.parse(event.data);
-      if (data.type === 'UPDATE_LIKES_DISLIKES' && data.postId === postId) {
-          setLikes(data.likes);
-          setDislikes(data.dislikes);
-          console.log('Likes updated:', data.likes);
-          console.log('Dislikes updated:', data.dislikes);
-      }
-  };
+  //    socket.onmessage = (event) => {
+  //     console.log(event.data)
+  //     const data = JSON.parse(event.data);
+  //     if (data.type === 'UPDATE_LIKES_DISLIKES' && data.postId === postId) {
+  //         setLikes(data.likes);
+  //         setDislikes(data.dislikes);
+  //         console.log('Likes updated:', data.likes);
+  //         console.log('Dislikes updated:', data.dislikes);
+  //     }
+  // };
    // Handle socket close or error
   //  socket.onclose = () => console.log('WebSocket closed');
-   socket.onerror = (error) => console.log('WebSocket error', error);
+  //  socket.onerror = (error) => console.log('WebSocket error', error);
 
-   return () => {
-       socket.close();
-   };
-      // getLikesDislikes()
-      // const intervalId = setInterval(getLikesDislikes, 1000);
-      // return () => clearInterval(intervalId);
+  //  return () => {
+  //      socket.close();
+  //  };
+      getLikesDislikes()
+      const intervalId = setInterval(getLikesDislikes, 1000);
+      return () => clearInterval(intervalId);
     }, [ socket, onePost])
     useEffect(()=>{
         getPost()

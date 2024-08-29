@@ -38,7 +38,7 @@ function AddContact() {
         try{
           const response = await axios.post<AddContactForm[]>(`${basedURL}`, data);
           console.log(response)
-        }catch(error){
+        }catch(error: any){
             console.log(error)
             setErrorMes(error.response.data.error)
         }
@@ -73,7 +73,7 @@ function AddContact() {
         </div>
         <div className="name">
             <label htmlFor="phoneno">Phone number</label>
-            <Input type="text"  id="phoneno" onChange={(e)=>{console.log(e.target.value)}} placeholder="09075281633" {...register("phoneNo")} />
+            <Input type="text"  id="phoneno" placeholder="09075281633" {...register("phoneNo")} />
             {errors.phoneNo && <span className="errMeg">{errors.phoneNo.message}</span>}
             {errorMes && <span className="errMeg">{errorMes}</span>}
         </div>
