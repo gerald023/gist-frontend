@@ -29,12 +29,13 @@ const Webrouter = createBrowserRouter([
       {path: "category", element: <CreatCategory/>},
       {path: 'all-post', element: <AllPost/>},
       {path: 'payment', element: <MakePayment/>},
+      {
+        path: '/post/:id',
+        element: <OnePostPage/>
+      }
     ]
   },
-  {
-    path: '/post/:id',
-    element: <OnePostPage/>
-  },
+  
   {
     path: 'auth',
     element: <Auth/>,

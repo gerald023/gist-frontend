@@ -37,7 +37,11 @@ function NavBar() {
                     <ListItem>Trending </ListItem>
                     <ListItem>Entertainment</ListItem>
                     <ListItem>Life</ListItem>
-                    <ListItem>Gist us</ListItem>
+                    <ListItem>
+                      <Link to={'/text'}>
+                      Gist us
+                      </Link>
+                    </ListItem>
                 </UnorderedList>
                 <Box className='auth' display={'flex'} gap={'20px'}>
                     <Box>
