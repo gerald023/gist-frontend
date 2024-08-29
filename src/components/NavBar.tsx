@@ -1,6 +1,7 @@
 import { Box, Button, ListItem, Text, UnorderedList } from '@chakra-ui/react'
 import  { useEffect, useState } from 'react'
 import '../styles/navBar.css'
+import { Link } from 'react-router-dom';
 
 function NavBar() {
 
@@ -40,11 +41,14 @@ function NavBar() {
                 </UnorderedList>
                 <Box className='auth' display={'flex'} gap={'20px'}>
                     <Box>
-                        
+                        <Link to={'auth'}>
                         <Button padding={'0 30px'} bg={'transparent'} border={'2px solid #003366'} color={'#003366'}>Sign up</Button>
+                        </Link>
                     </Box>
                     <Box>
+                        <Link to={'auth/login'}>
                         <Button padding={'0 30px'} bg={'#003366'} border={'2px solid transparent'} color={'#F2F2F2'} _hover={{}}>Login</Button>
+                        </Link>
                     </Box>
                 </Box>
             </Box>
