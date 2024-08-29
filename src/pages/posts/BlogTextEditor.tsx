@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-// import Quill from 'quill';
-// // import Link from 'quill/formats/link'
+import { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import "quill/dist/quill.core.css";
@@ -59,7 +57,7 @@ function BlogTextEditor({childData, initialValues}: {childData: any, initialValu
         formats={formats}
         onChange={handleChange} placeholder='create blog...' style={{height: '90%'}}
       />
-         
+          
       </Box>
       
     </>

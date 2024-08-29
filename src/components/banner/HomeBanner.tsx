@@ -1,14 +1,32 @@
-import { Avatar, Box, Flex, Img, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react';
+import { Box, Flex, Img, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from '@chakra-ui/react';
 // import sabinus from '../../assets/sabinus.jpeg';
 import banner from '../../assets/pexels-podnar2018-1424239.jpg';
 import '../../styles/banner.css'
-import blog from '../../assets/blogCode.jpg'
 import BlogBox from './BlogBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleRight, faArrowRight, faCircle, faLocationArrow, faPlus } from '@fortawesome/free-solid-svg-icons';
-import travel from '../../assets/travel.jpg'
+import {  faArrowRight, faCircle, faLocationArrow, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
+import { PostServices } from '../../services/PostService.service';
+import { formatDate } from '../../script/date.format';
+import Loader from '../Loader';
 
 function HomeBanner() {
+  const [recentPost, setRecentPost] = useState([]);
+  const [cateId, setCateId] = useState<number>(1);
+  const postService = new  PostServices()
+  const getRecentPost = async ()=>{
+    try{
+      const response = await postService.getPostByCategory(cateId);
+      console.log(response)
+      setRecentPost(response?.data)
+    }catch(error){
+      console.log(error)
+    }
+  }
+  
+  useEffect(()=>{
+    getRecentPost()
+  }, [])
   return (
     <>
       <Box className='bannerCon'>
@@ -26,32 +44,58 @@ function HomeBanner() {
           </Box>
         </Box>
       </Box>
-      <Box w={'100%'} h={'600px'} className='recentPost' bg={''}>
+      <Box w={'100%'} h={''} className='recentPost' bg={''}>
         <Box className='title'>
           <Text>Recent Blog</Text>
         </Box>
         <Tabs>
           <TabList>
-            <Tab>fashion</Tab>
-            <Tab>sport</Tab>
+            <Tab onClick={()=> {setCateId(1);setCateId(1)
+                        getRecentPost() 
+            }
+          }>fashion
+          </Tab>
+            <Tab onClick={()=> {setCateId(2); setCateId(2)
+              getRecentPost()
+            }}>
+              sport
+            </Tab>
           </TabList>
           <TabPanels>
             <TabPanel>
             <Box className='rowBlog'>
           <Box className='blogCon'>
-            <BlogBox/>
-            <BlogBox/>
-            <BlogBox/>
-            <BlogBox/>
+            {
+              recentPost
+              ?
+               recentPost.map((post: any)=>{
+                return(
+                  <Box key={post.id}>
+                   <BlogBox id={post.id} author={post.author.firstName + ' ' + post.author.lastName} title={post.title} category={post.category.Catename} createAt={formatDate(post.createdAt)} Post_images={post.images[0] } author_image={post.category.images[0]} />
+                  </Box>
+                )
+              })
+              
+              : 
+              <Loader/> 
+            }
+            
+            
           </Box>
         </Box>
             </TabPanel>
             <TabPanel>
             <Box className='rowBlog'>
           <Box className='blogCon'>
-            <BlogBox/>
-            <BlogBox/>
-            <BlogBox/>
+          {
+              recentPost && recentPost.map((post: any)=>{
+                return(
+                  <Box key={post.id}>
+                   <BlogBox id={post.id} author={post.author.firstName + ' ' + post.author.lastName} title={post.title} category={post.category.Catename} createAt={formatDate(post.createdAt)} Post_images={post.images[0] } author_image={post.category.images[0]} />
+                  </Box>
+                )
+              })
+            }
            
           </Box>
         </Box>

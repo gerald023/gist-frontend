@@ -1,13 +1,11 @@
-import { useDisclosure, useMediaQuery } from '@mantine/hooks';
-import { Modal, Button,Stepper, ModalBaseHeader, Group, ModalBaseBody, Text, TextInput, FileInput, Code, Image, MultiSelect, NativeSelect,  } from '@mantine/core';
+import { Button,Stepper,  Group,  Text, TextInput,  Image, } from '@mantine/core';
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from '@mantine/form';
-import { boolean } from 'zod';
-import { Box, FormLabel, Input, InputGroup } from '@chakra-ui/react';
+import { Box,  Input, InputGroup } from '@chakra-ui/react';
 import BlogTextEditor from './BlogTextEditor';
 import { FaRegImage } from "react-icons/fa6";
 import { CategoryService } from '../../services/CategoryService.service';
-import { postDTO, PostServices } from '../../services/PostService.service';
+import { CreatePostDTO, postDTO, PostServices } from '../../services/PostService.service';
 import Cookies from 'js-cookie';
 
 
@@ -17,7 +15,7 @@ const CreateBlog =()=> {
   const [blogBody, setBlogBody] = useState<string>('');
   const [displayImg, setDisplayImg] = useState<File| null>();
   const [viewImg, setViewImg] = useState<any>();
-  const [blogName, setBlogName]= useState<string>('')
+  // const [blogName, setBlogName]= useState<string>('')
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const form = useForm({
     mode: 'uncontrolled',
@@ -103,14 +101,13 @@ const CreateBlog =()=> {
 
   }
   const [Post, setPost] = useState<postDTO[]>([])
-  const blogDetails : postDTO ={
-    title: form.getValues().name,
+  const blogDetails : CreatePostDTO ={
+    title: form.getValues().name + selected,
     content: blogBody,
     author: Cookies.get('jwt'),
     publish: false,
-    cateID: 2,
     image: displayImg,
-    id: undefined,
+    category: Number(selected),
     images: undefined
   }
   const postService = new PostServices()
@@ -118,17 +115,18 @@ const CreateBlog =()=> {
     try{
       const response = postService.createPost(blogDetails)
       console.log(response);
-      console.log(await response)
+      console.log(await response);
+      console.log(selected);
      
     }catch(error){
       console.log(error)
+      console.log(selected)
     }
   }
   return (
     <>
        
           <Text fz={'20px'} fw={'700'}>Fill the form below</Text>
-       
        <Box w={'100%'}  display={'flex'} pos={'sticky'} top={'0'} justifyContent={'center'} alignItems={'center'}>
        <form action="" style={{width: '70%',display: 'flex',flexDirection: 'column', gap: '30px'}} onSubmit={form.onSubmit((values)=> console.log(values))}>
         <Stepper w={'100%'} pos={'sticky'} top={'0'} active={active} >
@@ -163,6 +161,7 @@ const CreateBlog =()=> {
     /> */}
         <label style={{fontWeight: '600', fontSize: '15px'}} htmlFor="category">Choose Category</label>
         <select value={selected} onChange={(e)=> {setSelected(e.target.value)
+        
           console.log(selected);
         }} style={{width: '100%', padding: '8px', border: '1px solid #c0d9d9'}} name="category" id="">
           <option disabled>Choose category</option>
@@ -170,7 +169,7 @@ const CreateBlog =()=> {
             allCate && (
               allCate.map((cate: any)=>{
                 return(
-                  <option key={cate.id} value={cate.Catename}>{cate.Catename}</option>
+                  <option key={cate.id} value={cate.id}>{cate.Catename}</option>
                 )
               })
             )
@@ -224,7 +223,7 @@ const CreateBlog =()=> {
         </Stepper.Step>
         <Stepper.Step label="Final step" description="Get full access">
           <Box w={'100%'} h={'76vh'}>
-          <BlogTextEditor childData={handleDataFromChild} initialValues={blogBody} />
+          <BlogTextEditor childData={handleDataFromChild} initialValues={blogBody + selected} />
           </Box>
         </Stepper.Step>
         <Stepper.Completed>

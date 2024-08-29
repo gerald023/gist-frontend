@@ -1,7 +1,6 @@
 import './global.js'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './index.css'
 import HomePage from './pages/HomePage.tsx';
@@ -12,12 +11,13 @@ import Auth from './pages/auth/Auth.tsx';
 import SignUp from './pages/auth/SignUp.tsx';
 import Login from './pages/auth/Login.tsx';
 import CreatCategory from './pages/CreatCategory.tsx';
-import BlogTextEditor from './pages/posts/BlogTextEditor.tsx';
 import CreateBlog from './pages/posts/CreateBlog.tsx';
 import { MantineProvider } from '@mantine/core';
 import '@mantine/tiptap/styles.css';
 import '@mantine/core/styles.css'
 import AllPost from './pages/posts/AllPost.tsx';
+import MakePayment from './pages/shop/MakePayment.tsx';
+import OnePostPage from './pages/posts/OnePostPage.tsx';
 
 const Webrouter = createBrowserRouter([
   {
@@ -27,8 +27,15 @@ const Webrouter = createBrowserRouter([
       {index: true, element: <HomePage/>},
       {path: "contacts", element: <Contact/>},
       {path: "category", element: <CreatCategory/>},
-      {path: 'all-post', element: <AllPost/>}
+      {path: 'all-post', element: <AllPost/>},
+      {path: 'payment', element: <MakePayment/>},
+      { path: 'post/:id', element: <OnePostPage/>
+      }
     ]
+  },
+  {
+    path: 'post/:id',
+    element: <OnePostPage/>
   },
   {
     path: 'auth',
@@ -50,9 +57,9 @@ const Webrouter = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <MantineProvider>
-    {/* <ChakraProvider> */}
+    <ChakraProvider>
     <RouterProvider router={Webrouter }/>
-    {/* </ChakraProvider> */}
+    </ChakraProvider>
     </MantineProvider>
   </React.StrictMode>,
 )
